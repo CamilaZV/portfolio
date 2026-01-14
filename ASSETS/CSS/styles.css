@@ -40,17 +40,11 @@
   --border-radius-lg: 12px;
   --border-radius-full: 50%;
 
-  /*  CARDS  */
-  --card-padding: var(--space-md);
-  --card-gap: var(--space-lg);
-
   /*  SPECIFIC SIZES  */
   --avatar-size: 250px;
   --icon-size-sm: 20px;
   --icon-size-md: 24px;
   --icon-size-lg: 40px;
-  --project-card-max-width: 550px;
-  --small-project-card-width: 300px;
 
   /*  SHADOW  */
   --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
@@ -118,7 +112,7 @@ header {
 }
 
 /* MEDIA QUERIES HEADER */
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .container {
     padding: 0 var(--space-sm);
   }
@@ -262,7 +256,7 @@ h1 {
 }
 
 /* MEDIA QUERIES HERO */
-@media (max-width: 576px) {
+@media (max-width: 575px) {
   .hero {
     padding: var(--space-xs);
   }
@@ -309,7 +303,7 @@ h1 {
 
 /* SECTION PROJECTS */
 .projects {
-  padding: var(--space-md) 0;
+  padding: var(--space-md);
   background-color: var(--light-gray);
 }
 
@@ -317,7 +311,6 @@ h1 {
   font-size: var(--font-size-3xl);
   font-weight: var(--font-weight-bold);
   color: var(--dark);
-  margin-bottom: var(--space-lg);
   text-align: center;
 }
 
@@ -326,7 +319,8 @@ h1 {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
   gap: var(--space-xl);
-  margin-bottom: var(--space-lg);
+  margin-bottom: var(--space-md);
+  padding: var(--space-lg);
 }
 
 .project-card {
@@ -335,6 +329,8 @@ h1 {
   overflow: hidden;
   border: 1px solid var(--light-gray);
   transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
 }
 
 .project-card:hover {
@@ -347,6 +343,7 @@ h1 {
   height: 280px;
   overflow: hidden;
   background-color: #e5e7eb;
+  flex-shrink: 0;
 }
 
 .project-image img {
@@ -361,13 +358,16 @@ h1 {
 
 .project-content {
   padding: var(--space-md);
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
 }
 
 .project-title {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-bold);
   color: var(--dark);
-  margin-bottom: var(--space-sm);
+  margin: var(--space-sm) 0;
 }
 
 .project-description {
@@ -397,6 +397,7 @@ h1 {
   display: flex;
   justify-content: end;
   gap: var(--space-sm);
+  margin-top: auto;
 }
 
 .project-actions i {
@@ -434,4 +435,118 @@ h1 {
 .btn-secondary:hover {
   background-color: var(--dark);
   color: var(--white);
+}
+
+/* OTHER PROJECTS */
+.small-projects {
+  margin-top: var(--space-md);
+}
+
+.small-projects-title {
+  font-size: var(--font-size-xl);
+  font-weight: var(--font-weight-semibold);
+  color: var(--dark);
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.small-projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.small-card {
+  background-color: var(--white);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md);
+  border: 1px solid var(--light-gray);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.small-card:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+.small-card-title {
+  font-size: var(--font-size-lg);
+}
+
+.small-card-description {
+  font-size: var(--font-size-sm);
+  color: var(--gray);
+  line-height: var(--line-height-relaxed);
+  margin-bottom: var(--space-sm);
+  flex-grow: 1;
+}
+
+.small-card-link {
+  color: var(--accent);
+  font-size: var(--font-size-sm);
+  font-weight: var(--font-weight-medium);
+  text-decoration: none;
+  display: inline-flex;
+  align-items: baseline;
+  justify-content: end;
+  gap: var(--space-xs);
+  transition: gap var(--transition-normal);
+}
+
+.small-card-link:hover {
+  gap: var(--space-sm);
+}
+
+/* MEDIA QUERIES PROJECTS */
+@media (max-width: 575px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    padding: var(--space-md);
+    gap: var(--space-md);
+  }
+
+  .project-image {
+    height: 220px;
+  }
+
+  .project-actions {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* OTHER PROJECTS */
+  .small-projects-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .small-card {
+    padding: var(--space-sm);
+  }
+
+  .small-projects-title {
+    font-size: var(--font-size-lg);
+  }
+
+  .small-card-title {
+    margin: var(--space-sm) 0;
+  }
+
+  .small {
+    margin-bottom: 0;
+  }
+
+  .small-card-link {
+    margin-bottom: var(--space-sm);
+    margin-right: var(--space-sm);
+  }
 }
