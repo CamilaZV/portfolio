@@ -304,6 +304,7 @@ h1 {
 /* SECTION PROJECTS */
 .projects {
   padding: var(--space-md);
+  padding-bottom: var(--space-lg);
   background-color: var(--light-gray);
 }
 
@@ -442,7 +443,7 @@ h1 {
   margin-top: var(--space-md);
 }
 
-.small-projects-title {
+.section-subtitle {
   font-size: var(--font-size-xl);
   font-weight: var(--font-weight-semibold);
   color: var(--dark);
@@ -523,7 +524,7 @@ h1 {
     justify-content: center;
   }
 
-  /* OTHER PROJECTS */
+  /* MQ OTHER PROJECTS */
   .small-projects-grid {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -535,6 +536,7 @@ h1 {
 
   .small-projects-title {
     font-size: var(--font-size-lg);
+    margin-bottom: var(--space-sm);
   }
 
   .small-card-title {
@@ -546,7 +548,64 @@ h1 {
   }
 
   .small-card-link {
-    margin-bottom: var(--space-sm);
-    margin-right: var(--space-sm);
+    margin: var(--space-sm);
+  }
+}
+
+/* SECTION EDUCATION */
+.education {
+  padding: var(--space-md);
+  padding-bottom: var(--space-lg);
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--space-md);
+}
+
+.education-card {
+  background-color: var(--light-gray);
+  border: 1px solid var(--light-gray);
+  border-radius: var(--border-radius-lg);
+  padding: var(--space-md);
+  transition: box-shadow var(--transition-normal);
+}
+
+.education-card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.education-course {
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
+  margin-bottom: var(--space-xs);
+}
+
+.education-platform {
+  font-size: var(--font-size-sm);
+  color: var(--accent);
+  font-weight: var(--font-weight-medium);
+  margin-bottom: var(--space-xs);
+}
+
+.education-year {
+  font-size: var(--font-size-xs);
+  color: var(--gray);
+}
+
+/* MEDIA QUERIES EDUCATION */
+@media (max-width: 575px) {
+  .education-grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-sm);
+  }
+
+  .education-card {
+    padding: var(--space-sm);
+  }
+
+  .education-course {
+    margin-top: var(--space-xs);
   }
 }
