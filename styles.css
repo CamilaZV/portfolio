@@ -69,6 +69,12 @@ html {
 
 body {
   background-color: var(--white);
+  font-family:
+    'Inter',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    sans-serif;
 }
 
 header {
@@ -123,16 +129,12 @@ header {
 
 /* MEDIA QUERIES HEADER */
 @media (max-width: 575px) {
-  .container {
-    padding: 0 var(--space-sm);
-  }
-
-  .header-content {
-    height: 70px;
-  }
-
   .header-name {
-    font-size: var(--font-size-lg);
+    font-size: var(--font-size-base);
+  }
+
+  .nav {
+    gap: var(--space-xs);
   }
 
   .nav-icon {
@@ -171,8 +173,8 @@ h1 {
 
 .hero-content {
   display: flex;
-  gap: var(--space-lg);
   align-items: center;
+  gap: var(--space-lg);
 }
 
 .hero-image-container {
@@ -272,12 +274,14 @@ h1 {
     gap: var(--space-xs);
   }
 
-  .hero-image-content {
+  .hero-image-container {
     flex-basis: 100%;
+    margin: 1.5rem 0;
   }
 
   .hero-text {
     flex-basis: 100%;
+    text-align: center;
   }
 
   .tech-divider {
@@ -288,6 +292,23 @@ h1 {
 
   .tech-stack {
     gap: var(--space-sm);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .hero-content {
+    flex-direction: column;
+    text-align: center;
+    gap: var(--space-md);
+  }
+
+  .hero-image-container,
+  .hero-text {
+    flex-basis: 100%;
+  }
+
+  .hero-description {
+    margin: 0 auto var(--space-md) auto;
   }
 }
 
@@ -309,8 +330,7 @@ h1 {
 
 /* SECTION PROJECTS */
 .projects {
-  padding: var(--space-md);
-  padding-bottom: var(--space-lg);
+  padding: var(--space-lg) 0;
   background-color: var(--light-gray);
 }
 
@@ -342,7 +362,7 @@ h1 {
 
 .project-card:hover {
   box-shadow: var(--shadow-lg);
-  transform: translateY(-4px);
+  transform: scale(1.05);
 }
 
 .project-image {
@@ -357,10 +377,6 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
-}
-
-.project-card:hover .project-image img {
-  transform: scale(1.05);
 }
 
 .project-content {
@@ -512,18 +528,35 @@ h1 {
 /* MEDIA QUERIES PROJECTS */
 @media (max-width: 575px) {
   .projects-grid {
+    padding: var(--space-md) 0;
     grid-template-columns: 1fr;
-    padding: var(--space-md);
     gap: var(--space-md);
+  }
+
+  .project-content {
+    padding: var(--space-sm);
+    text-align: center;
   }
 
   .project-image {
     height: 220px;
   }
 
+  .project-description {
+    font-size: var(--font-size-sm);
+  }
+
+  .project-tech {
+    display: block;
+  }
+
   .project-actions {
     justify-content: center;
     flex-wrap: wrap;
+  }
+
+  .section-title {
+    font-size: var(--font-size-2xl);
   }
 
   .btn {
@@ -532,6 +565,11 @@ h1 {
   }
 
   /* MQ OTHER PROJECTS */
+
+  .section-subtitle {
+    margin-bottom: var(--space-md);
+  }
+
   .small-projects-grid {
     grid-template-columns: 1fr;
     gap: var(--space-sm);
@@ -541,13 +579,8 @@ h1 {
     padding: var(--space-sm);
   }
 
-  .small-projects-title {
-    font-size: var(--font-size-lg);
-    margin-bottom: var(--space-sm);
-  }
-
   .small-card-title {
-    margin: var(--space-sm) 0;
+    margin: var(--space-xs) 0;
   }
 
   .small {
@@ -555,7 +588,23 @@ h1 {
   }
 
   .small-card-link {
-    margin: var(--space-sm);
+    margin: var(--space-xs);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    padding: var(--space-md);
+    gap: var(--space-lg);
+  }
+
+  .small-card {
+    padding: 1.5rem;
+  }
+
+  .project-tech {
+    margin-bottom: var(--space-sm);
   }
 }
 
@@ -597,14 +646,36 @@ h1 {
 }
 
 .education-year {
-  font-size: var(--font-size-xs);
+  font-size: var(--font-size-sm);
   color: var(--gray);
 }
 
 /* MEDIA QUERIES EDUCATION */
 @media (max-width: 575px) {
+  .education {
+    padding: var(--space-sm) 0;
+  }
+
+  .section-subtitle {
+    margin-bottom: var(--space-sm);
+    margin-top: var(--space-md);
+  }
+
   .education-grid {
-    grid-template-columns: 1fr;
+    padding: var(--space-sm) 0;
+    gap: var(--space-sm);
+  }
+
+  .education-card {
+    padding: var(--space-sm);
+  }
+  .education-course {
+    font-size: var(--font-size-base);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .education-grid {
     gap: var(--space-sm);
   }
 
@@ -612,8 +683,8 @@ h1 {
     padding: var(--space-sm);
   }
 
-  .education-course {
-    margin-top: var(--space-xs);
+  .section-subtitle {
+    margin-bottom: var(--space-sm);
   }
 }
 
@@ -628,7 +699,6 @@ h1 {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: var(--space-md);
 }
 
 .footer-title {
@@ -680,6 +750,10 @@ h1 {
     text-align: center;
   }
 
+  .footer-title {
+    font-size: var(--font-size-xl);
+  }
+
   .footer-contact {
     display: flex;
     flex-direction: column;
@@ -690,7 +764,46 @@ h1 {
     font-size: var(--icon-size-lg);
   }
 
+  .contact-item {
+    font-size: var(--font-size-base);
+    gap: var(--space-xs);
+  }
+
   .contact-info {
     align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .copy-icon {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (min-width: 576px) and (max-width: 768px) {
+  .footer-content {
+    flex-direction: column;
+    gap: var(--space-md);
+    text-align: center;
+  }
+
+  .contact-info {
+    font-size: var(--font-size-base);
+    align-items: center;
+    gap: var(--space-sm);
+  }
+
+  .contact-item {
+    font-size: var(--font-size-base);
+  }
+
+  .footer-title {
+    font-size: var(--font-size-xl);
+  }
+  .footer-icon {
+    font-size: var(--icon-size-lg);
+  }
+
+  .nav-icon {
+    font-size: var(--font-size-2xl);
   }
 }
